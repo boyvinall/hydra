@@ -55,7 +55,7 @@ imports:
   - rand/sequence
   - compiler
 - name: github.com/ory-am/fosite
-  version: 89c60c9f2898345fd3d75044c8e41eacbf0d4fd5
+  version: 6c40c086a1f082d466bac21721571558c32de97c
   subpackages:
   - fosite-example/store
   - handler/core
