@@ -74,9 +74,9 @@ func Connect(opts ...option) (*Client, error) {
 		Scopes:       c.scopes,
 	}
 
-	c.http = http.DefaultClient
-
-	if c.skipTLSVerify {
+	if c.http == nil {
+		c.http = http.DefaultClient
+	} else if c.skipTLSVerify {
 		c.http = &http.Client{
 			Transport: &http.Transport{
 				TLSClientConfig: &tls.Config{InsecureSkipVerify: true},

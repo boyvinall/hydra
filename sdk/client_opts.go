@@ -2,6 +2,7 @@ package sdk
 
 import (
 	"io/ioutil"
+	"net/http"
 	"net/url"
 
 	"gopkg.in/yaml.v2"
@@ -70,6 +71,13 @@ func ClientSecret(secret string) option {
 func SkipTLSVerify() option {
 	return func(c *Client) error {
 		c.skipTLSVerify = true
+		return nil
+	}
+}
+
+func HTTP(client *http.Client) option {
+	return func(c *Client) error {
+		c.http = client
 		return nil
 	}
 }
